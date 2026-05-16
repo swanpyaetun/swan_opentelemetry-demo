@@ -30,7 +30,7 @@ spec:
         app.kubernetes.io/component: checkout
         app.kubernetes.io/name: checkout
       annotations:
-        resource.opentelemetry.io/service.namespace: otel-demo
+        resource.opentelemetry.io/service.namespace: {{ .Values.namespace }}
     spec:
       serviceAccountName: opentelemetry-demo
       containers:

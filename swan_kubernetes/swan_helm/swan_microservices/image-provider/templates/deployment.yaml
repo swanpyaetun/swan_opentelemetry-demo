@@ -36,7 +36,7 @@ spec:
           timeout: "20s"
         io.opentelemetry.discovery.metrics/enabled: "true"
         io.opentelemetry.discovery.metrics/scraper: nginx
-        resource.opentelemetry.io/service.namespace: otel-demo
+        resource.opentelemetry.io/service.namespace: {{ .Values.namespace }}
     spec:
       serviceAccountName: opentelemetry-demo
       containers:

@@ -30,7 +30,7 @@ spec:
         app.kubernetes.io/component: ad
         app.kubernetes.io/name: ad
       annotations:
-        resource.opentelemetry.io/service.namespace: otel-demo
+        resource.opentelemetry.io/service.namespace: {{ .Values.namespace }}
     spec:
       serviceAccountName: opentelemetry-demo
       containers:

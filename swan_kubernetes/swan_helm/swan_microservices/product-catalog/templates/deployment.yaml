@@ -30,7 +30,7 @@ spec:
         app.kubernetes.io/component: product-catalog
         app.kubernetes.io/name: product-catalog
       annotations:
-        resource.opentelemetry.io/service.namespace: otel-demo
+        resource.opentelemetry.io/service.namespace: {{ .Values.namespace }}
     spec:
       serviceAccountName: opentelemetry-demo
       containers:

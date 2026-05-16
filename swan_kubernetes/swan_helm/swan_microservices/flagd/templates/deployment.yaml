@@ -30,7 +30,7 @@ spec:
         app.kubernetes.io/component: flagd
         app.kubernetes.io/name: flagd
       annotations:
-        resource.opentelemetry.io/service.namespace: otel-demo
+        resource.opentelemetry.io/service.namespace: {{ .Values.namespace }}
     spec:
       serviceAccountName: opentelemetry-demo
       containers:

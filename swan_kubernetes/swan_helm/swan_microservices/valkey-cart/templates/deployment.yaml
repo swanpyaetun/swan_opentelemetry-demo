@@ -35,7 +35,7 @@ spec:
           collection_interval: 10s
         io.opentelemetry.discovery.metrics/enabled: "true"
         io.opentelemetry.discovery.metrics/scraper: redis
-        resource.opentelemetry.io/service.namespace: otel-demo
+        resource.opentelemetry.io/service.
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
