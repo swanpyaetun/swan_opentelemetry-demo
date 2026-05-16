@@ -5,7 +5,7 @@
 namespace: otel-demo
 image:
   repository: 655355946217.dkr.ecr.ap-southeast-1.amazonaws.com/swan_polyglot-microservices-application/frontend-proxy
-  tag: "124d192fb7e3f481ce9059c1d9d2d1765d958ea3"
+  tag: "053ba2d5d619ed33d00e86fa1378e55525c533e2"
 resources:
   requests:
     cpu:
