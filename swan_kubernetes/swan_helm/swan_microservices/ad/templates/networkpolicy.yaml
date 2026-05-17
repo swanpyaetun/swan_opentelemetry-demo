@@ -33,15 +33,3 @@ spec:
     ports:
     - protocol: TCP
       port: 8013
-  - to:
-    - namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: otel-demo
-      podSelector:
-        matchLabels:
-          app.kubernetes.io/name: opentelemetry-collector
-          app.kubernetes.io/instance: opentelemetry-demo
-          component: agent-collector
-    ports:
-    - protocol: TCP
-      port: 4318
