@@ -14,7 +14,7 @@ metadata:
     app.kubernetes.io/name: product-reviews
     app.kubernetes.io/part-of: opentelemetry-demo
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
