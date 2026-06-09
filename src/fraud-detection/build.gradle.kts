@@ -40,7 +40,7 @@ dependencies {
     implementation("com.google.api.grpc:proto-google-common-protos:2.72.0")
     implementation("io.grpc:grpc-protobuf:${grpcVersion}")
     implementation("io.grpc:grpc-stub:${grpcVersion}")
-    implementation("io.grpc:grpc-netty-shaded:${grpcVersion}")
+    implementation("io.grpc:grpc-netty:${grpcVersion}")
     implementation("io.grpc:grpc-services:${grpcVersion}")
     implementation("io.opentelemetry:opentelemetry-api:1.62.0")
     implementation("io.opentelemetry:opentelemetry-sdk:1.62.0")
