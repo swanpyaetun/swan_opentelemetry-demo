@@ -5,7 +5,7 @@
 namespace: otel-demo
 image:
   repository: 655355946217.dkr.ecr.ap-southeast-1.amazonaws.com/swan_polyglot-microservices-application/product-reviews
-  tag: "6c3af19ad98bc994adfef5a288552db4a353ae02"
+  tag: "152072af9d3e9cc7512e46402d8b7cb17aafa7c0"
 resources:
   requests:
     cpu:
