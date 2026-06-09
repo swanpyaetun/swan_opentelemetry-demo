@@ -39,3 +39,13 @@ spec:
     ports:
     - protocol: TCP
       port: 8080
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: flagd
+    ports:
+    - protocol: TCP
+      port: 8013

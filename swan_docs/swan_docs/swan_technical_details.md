@@ -147,11 +147,12 @@ When creating network policies, these traffic flows are included since they are 
 3. frontend to flagd
 4. checkout to flagd
 5. kafka to kafka on port 9093
-6. accounting to kafka
-7. fraud-detection to kafka
-8. email to flagd
-9. product-catalog to postgresql
-10. product-catalog to flagd
+6. shipping to flagd
+7. accounting to kafka
+8. fraud-detection to kafka
+9. email to flagd
+10. product-catalog to postgresql
+11. product-catalog to flagd
 <br>
 
 Application is secured by implementing the following practices:

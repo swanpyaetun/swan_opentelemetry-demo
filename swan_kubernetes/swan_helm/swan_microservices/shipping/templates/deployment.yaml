@@ -59,6 +59,10 @@ spec:
               value: http://$(OTEL_COLLECTOR_NAME):4317
             - name: IPV6_ENABLED
               value: "false"
+            - name: FLAGD_HOST
+              value: flagd
+            - name: FLAGD_PORT
+              value: "8013"
           resources:
             {{- with .Values.resources }}
             requests:
