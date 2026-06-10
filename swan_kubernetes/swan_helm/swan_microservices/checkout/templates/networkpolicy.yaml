@@ -1,0 +1,85 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: checkout
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      opentelemetry.io/name: checkout
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: frontend
+    ports:
+    - protocol: TCP
+      port: 8080
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: currency
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: cart
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: payment
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: email
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: product-catalog
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: shipping
+    ports:
+    - protocol: TCP
+      port: 8080
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: kafka
+    ports:
+    - protocol: TCP
+      port: 9092
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: flagd
+    ports:
+    - protocol: TCP
+      port: 8013

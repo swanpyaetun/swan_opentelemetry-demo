@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: quote
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      opentelemetry.io/name: quote
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: otel-demo
+      podSelector:
+        matchLabels:
+          opentelemetry.io/name: shipping
+    ports:
+    - protocol: TCP
+      port: 8080
