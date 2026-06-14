@@ -6,6 +6,7 @@
   - [1.1. AWS resources required for swanpyaetun/swan_polyglot-microservices-application Project](#11-aws-resources-required-for-swanpyaetunswan_polyglot-microservices-application-project)
 - [2. GitHub Actions](#2-github-actions)
   - [2.1. Create repository secret](#21-create-repository-secret)
+  - [2.2. Update workflow permissions](#22-update-workflow-permissions)
 - [3. GitHub](#3-github)
   - [3.1. Create GitHub App for Argo CD Image Updater](#31-create-github-app-for-argo-cd-image-updater)
 - [4. Helm](#4-helm)
@@ -28,16 +29,21 @@ aws iam get-role --role-name swan_githubactions_ecr_iam_role --query 'Role.Arn' 
 ```
 Run this command to get "swan_githubactions_ecr_iam_role" arn.
 
-In swanpyaetun/swan_polyglot-microservices-application repository, go to "Settings" -> Secrets and variables -> Actions.<br>
+In swanpyaetun/swan_polyglot-microservices-application repository, go to "Settings" -> Security and quality -> Secrets and variables -> Actions.<br>
 Create a new repository secret:<br>
 Name: SWAN_CI_IAM_ROLE_ARN<br>
 Secret: "swan_githubactions_ecr_iam_role" arn
+
+### 2.2. Update workflow permissions
+
+In swanpyaetun/swan_polyglot-microservices-application repository, go to "Settings" -> Code and automation -> Actions -> General. Go to "Workflow permissions", and select "Read and write permissions". Click "Save".
 
 ## 3. GitHub
 
 ### 3.1. Create GitHub App for Argo CD Image Updater
 
-Go to GitHub -> Settings -> Developer settings -> GitHub Apps. Create a GitHub App with the following settings:<br>
+Go to GitHub -> Settings -> Developer settings -> GitHub Apps.<br>
+Create a GitHub App with the following settings:<br>
 GitHub App name: swan-argocd-image-updater<br>
 Homepage URL: https://github.com/swanpyaetun/swan_polyglot-microservices-application<br>
 Disable Webhook<br>
