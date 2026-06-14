@@ -7,12 +7,6 @@ on:
     paths:
       - 'src/recommendation/**'
       - '!swan_kubernetes/swan_helm/swan_microservices/**/values.yaml'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'src/recommendation/**'
-      - '!swan_kubernetes/swan_helm/swan_microservices/**/values.yaml'
   workflow_dispatch:
 
 jobs:

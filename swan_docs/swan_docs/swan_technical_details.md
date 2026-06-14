@@ -57,10 +57,9 @@ swan_docker job does the following steps:
 
 There are 20 CI/CD pipelines which build and push Docker images to private ECR repositories. Each microservice has 1 CI/CD pipeline, except postgresql and valkey-cart.
 
-CI/CD pipelines for microservices can be triggered in 3 ways:
-1. The CI/CD pipelines run when a pull request is opened against the main branch.
-2. The CI/CD pipelines run when a direct push is made to the main branch.
-3. The CI/CD pipelines run when a user manually triggers them.
+CI/CD pipelines for microservices can be triggered in 2 ways:
+1. The CI/CD pipelines run when a direct push is made to the main branch.
+2. The CI/CD pipelines run when a user manually triggers them.
 
 In CI/CD pipelines for microservices, swan_docker job uses [./.github/workflows/swan_docker.yml reusable workflow](#21-githubworkflowsswan_dockeryml).
 
