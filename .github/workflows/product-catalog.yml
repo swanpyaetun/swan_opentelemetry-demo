@@ -4,17 +4,15 @@ on:
   push:
     branches:
       - main
-    #paths:
-    #  - 'src/product-catalog/**'
-    paths-ignore:
-      - 'swan_kubernetes/swan_helm/swan_microservices/**/values.yaml'
+    paths:
+      - 'src/product-catalog/**'
+      - '!swan_kubernetes/swan_helm/swan_microservices/**/values.yaml'
   pull_request:
     branches:
       - main
-    #paths:
-    #  - 'src/product-catalog/**'
-    paths-ignore:
-      - 'swan_kubernetes/swan_helm/swan_microservices/**/values.yaml'
+    paths:
+      - 'src/product-catalog/**'
+      - '!swan_kubernetes/swan_helm/swan_microservices/**/values.yaml'
   workflow_dispatch:
 
 jobs:
