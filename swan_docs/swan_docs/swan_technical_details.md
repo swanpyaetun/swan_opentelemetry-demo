@@ -25,7 +25,7 @@
 
 ### 1.1. IAM Role for GitHub Actions to authenticate to AWS
 
-IAM role is configured to trust GitHub OIDC provider for swan_polyglot-microservices-application repository in swanpyaetun organization. An inline policy with ECR permissions for selected ECR repositories is attached to IAM role.
+IAM role is configured to trust GitHub OIDC provider for swan_opentelemetry-demo repository in swanpyaetun organization. An inline policy with ECR permissions for selected ECR repositories is attached to IAM role.
 
 GitHub Actions authentication to AWS is secured by implementing the following practices:
 1. Not storing long-lived IAM user credentials in GitHub
@@ -84,7 +84,7 @@ aws ssm get-parameter --name "/aws/service/eks/optimized-ami/${K8S_VERSION}/amaz
 ```
 <br>
 
-Private subnets, EKS node IAM role, and default cluster security group are already created in [https://github.com/swanpyaetun/swan_eks-infrastructure](https://github.com/swanpyaetun/swan_eks-infrastructure).
+Private subnets, EKS node IAM role, and default cluster security group are already created in [https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo](https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo).
 <br><br>
 
 In "default" ec2nodeclass,

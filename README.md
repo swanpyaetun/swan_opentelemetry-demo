@@ -1,4 +1,4 @@
-# swanpyaetun/swan_polyglot-microservices-application
+# swanpyaetun/swan_opentelemetry-demo
 
 # Deploying 22 Microservices Application to EKS with GitHub Actions and Argo CD
 
@@ -50,7 +50,7 @@
 
 ## 3. Instructions
 
-Run "Provision AWS Infrastructure using Terraform" pipeline in [https://github.com/swanpyaetun/swan_eks-infrastructure](https://github.com/swanpyaetun/swan_eks-infrastructure) to create EKS infrastructure.
+Run "Provision AWS Infrastructure using Terraform" pipeline in [https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo](https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo) to create EKS infrastructure.
 <br><br>
 
 Run CI/CD pipelines for microservices to build and push Docker images to private ECR repositories.<br>
@@ -69,13 +69,13 @@ This command updates ~/.kube/config so that "swan_production_eks_cluster" EKS cl
 
 ```bash
 cd ~/Desktop/
-git clone git@github.com:swanpyaetun/swan_polyglot-microservices-application.git
+git clone git@github.com:swanpyaetun/swan_opentelemetry-demo.git
 ```
-Go to ~/Desktop/ and clone the [https://github.com/swanpyaetun/swan_polyglot-microservices-application](https://github.com/swanpyaetun/swan_polyglot-microservices-application) repository.
+Go to ~/Desktop/ and clone the [https://github.com/swanpyaetun/swan_opentelemetry-demo](https://github.com/swanpyaetun/swan_opentelemetry-demo) repository.
 <br><br>
 
 ```bash
-kubectl apply -f ~/Desktop/swan_polyglot-microservices-application/swan_kubernetes/swan_karpenter/
+kubectl apply -f ~/Desktop/swan_opentelemetry-demo/swan_kubernetes/swan_karpenter/
 ```
 This command creates "default" ec2nodeclass and "default" nodepool.
 <br><br>
@@ -105,7 +105,7 @@ To access Argo CD ui, go to http://localhost:8080. Enter "admin" in Username fie
 <br><br>
 
 ```bash
-kubectl apply -f ~/Desktop/swan_polyglot-microservices-application/swan_kubernetes/swan_argocd/root-app.yaml
+kubectl apply -f ~/Desktop/swan_opentelemetry-demo/swan_kubernetes/swan_argocd/root-app.yaml
 ```
 This command creates "root" application, which will then create child resources.
 <br><br>
@@ -114,17 +114,17 @@ Go to www.swanpyaetun.com to access the application.
 <br><br>
 
 ```bash
-kubectl delete -f ~/Desktop/swan_polyglot-microservices-application/swan_kubernetes/swan_argocd/root-app.yaml
+kubectl delete -f ~/Desktop/swan_opentelemetry-demo/swan_kubernetes/swan_argocd/root-app.yaml
 ```
 This command deletes Argo CD resources.
 
 After Argo CD resources are deleted, wait for 1 minute. After 1 minute, Karpenter will terminate empty nodes. Check in AWS Management Console or use "kubectl get node" to make sure only system EKS node group nodes are left.
 <br><br>
 
-Run "Terraform Destroy" pipeline in [https://github.com/swanpyaetun/swan_eks-infrastructure](https://github.com/swanpyaetun/swan_eks-infrastructure) to destroy EKS infrastructure.
+Run "Terraform Destroy" pipeline in [https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo](https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo) to destroy EKS infrastructure.
 
 ## 4. Additional Information
 
-Terraform code for EKS infrastructure, and GitHub Actions CI/CD pipelines for Terraform: [https://github.com/swanpyaetun/swan_eks-infrastructure](https://github.com/swanpyaetun/swan_eks-infrastructure)
+Terraform code for EKS infrastructure, and GitHub Actions CI/CD pipelines for Terraform: [https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo](https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo)
 
 This repository is a fork of [https://github.com/open-telemetry/opentelemetry-demo](https://github.com/open-telemetry/opentelemetry-demo).

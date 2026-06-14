@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [1. AWS](#1-aws)
-  - [1.1. AWS resources required for swanpyaetun/swan_polyglot-microservices-application Project](#11-aws-resources-required-for-swanpyaetunswan_polyglot-microservices-application-project)
+  - [1.1. AWS resources required for swanpyaetun/swan_opentelemetry-demo Project](#11-aws-resources-required-for-swanpyaetunswan_opentelemetry-demo-project)
 - [2. GitHub Actions](#2-github-actions)
   - [2.1. Create repository secret](#21-create-repository-secret)
   - [2.2. Update workflow permissions](#22-update-workflow-permissions)
@@ -14,11 +14,11 @@
 
 ## 1. AWS
 
-### 1.1. AWS resources required for swanpyaetun/swan_polyglot-microservices-application Project
+### 1.1. AWS resources required for swanpyaetun/swan_opentelemetry-demo Project
 
-Make sure you have created AWS resources required for swanpyaetun/swan_polyglot-microservices-application Project in [https://github.com/swanpyaetun/swan_eks-infrastructure/blob/main/swan_docs/swan_docs/swan_prerequisites.md#12-create-aws-resources-required-for-swanpyaetunswan_eks-infrastructure-project-and-swanpyaetunswan_polyglot-microservices-application-project](https://github.com/swanpyaetun/swan_eks-infrastructure/blob/main/swan_docs/swan_docs/swan_prerequisites.md#12-create-aws-resources-required-for-swanpyaetunswan_eks-infrastructure-project-and-swanpyaetunswan_polyglot-microservices-application-project)
+Make sure you have created AWS resources required for swanpyaetun/swan_opentelemetry-demo Project in [https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo/blob/main/swan_docs/swan_docs/swan_prerequisites.md#12-create-aws-resources-required-for-swanpyaetunswan_eks-infrastructure-for-opentelemetry-demo-project-and-swanpyaetunswan_opentelemetry-demo-project](https://github.com/swanpyaetun/swan_eks-infrastructure-for-opentelemetry-demo/blob/main/swan_docs/swan_docs/swan_prerequisites.md#12-create-aws-resources-required-for-swanpyaetunswan_eks-infrastructure-for-opentelemetry-demo-project-and-swanpyaetunswan_opentelemetry-demo-project)
 
-CI IAM role, Private ECR Repositories, and ACM Certificate are created for swanpyaetun/swan_polyglot-microservices-application project.
+CI IAM role, Private ECR Repositories, and ACM Certificate are created for swanpyaetun/swan_opentelemetry-demo project.
 
 ## 2. GitHub Actions
 
@@ -29,14 +29,14 @@ aws iam get-role --role-name swan_githubactions_ecr_iam_role --query 'Role.Arn' 
 ```
 Run this command to get "swan_githubactions_ecr_iam_role" arn.
 
-In swanpyaetun/swan_polyglot-microservices-application repository, go to "Settings" -> Security and quality -> Secrets and variables -> Actions.<br>
+In swanpyaetun/swan_opentelemetry-demo repository, go to "Settings" -> Security and quality -> Secrets and variables -> Actions.<br>
 Create a new repository secret:<br>
 Name: SWAN_CI_IAM_ROLE_ARN<br>
 Secret: "swan_githubactions_ecr_iam_role" arn
 
 ### 2.2. Update workflow permissions
 
-In swanpyaetun/swan_polyglot-microservices-application repository, go to "Settings" -> Code and automation -> Actions -> General. Go to "Workflow permissions", and select "Read and write permissions". Click "Save".
+In swanpyaetun/swan_opentelemetry-demo repository, go to "Settings" -> Code and automation -> Actions -> General. Go to "Workflow permissions", and select "Read and write permissions". Click "Save".
 
 ## 3. GitHub
 
@@ -45,7 +45,7 @@ In swanpyaetun/swan_polyglot-microservices-application repository, go to "Settin
 Go to GitHub -> Settings -> Developer settings -> GitHub Apps.<br>
 Create a GitHub App with the following settings:<br>
 GitHub App name: swan-argocd-image-updater<br>
-Homepage URL: https://github.com/swanpyaetun/swan_polyglot-microservices-application<br>
+Homepage URL: https://github.com/swanpyaetun/swan_opentelemetry-demo<br>
 Disable Webhook<br>
 Permissions:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Repository permissions:<br>
@@ -53,7 +53,7 @@ Permissions:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Metadata: Read-only<br>
 Where can this GitHub App be installed?: Only on this account<br>
 
-Go to "Settings" -> Developer settings -> GitHub Apps. Select "swan-argocd-image-updater" GitHub App. Go to "Install App". Click "Install". Choose "Only select repositories", click "Select repositories", and select "swanpyaetun/swan_polyglot-microservices-application". Click "Install".
+Go to "Settings" -> Developer settings -> GitHub Apps. Select "swan-argocd-image-updater" GitHub App. Go to "Install App". Click "Install". Choose "Only select repositories", click "Select repositories", and select "swanpyaetun/swan_opentelemetry-demo". Click "Install".
 
 ## 4. Helm
 
