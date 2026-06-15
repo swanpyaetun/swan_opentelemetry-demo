@@ -33,7 +33,7 @@ GitHub Actions authentication to AWS is secured by implementing the following pr
 
 ### 1.2. Private ECR Repositories for Microservices
 
-There are 20 private ECR repositories for microservices. There is no private ECR repository for postgresql and valkey-cart microservices.
+There are 20 private ECR repositories for microservices.
 
 ### 1.3. ACM Certificate for Kubernetes Ingress
 
@@ -55,7 +55,7 @@ swan_docker job does the following steps:
 
 ### 2.2. CI/CD pipelines for microservices
 
-There are 20 CI/CD pipelines which build and push Docker images to private ECR repositories. Each microservice has 1 CI/CD pipeline, except postgresql and valkey-cart.
+There are 20 CI/CD pipelines which build and push Docker images to private ECR repositories.
 
 CI/CD pipelines for microservices can be triggered in 2 ways:
 1. The CI/CD pipelines run when a direct push is made to the main branch.
@@ -115,7 +115,7 @@ Helm is used to package Kubernetes manifests into Helm charts.
 
 ### 5.1. swan_kubernetes/swan_helm/platform/
 
-In "platform" Helm chart, a namespace and service account for the application is created. "default-deny" network policy denies all ingress and egress traffic in the namespace. "allow-dns-access" network policy allows the pods in the namespace to access coredns pods.
+In "platform" Helm chart, namespace, service account, "default-deny" network policy, and "allow-dns-access" network policy are created. "default-deny" network policy denies all ingress and egress traffic in the namespace. "allow-dns-access" network policy allows the pods in the namespace to access coredns pods.
 
 Security in namespace "otel-demo" is achieved by implementing the following practices:
 1. "default-deny" network policy denies all ingress and egress traffic in the namespace
@@ -123,11 +123,7 @@ Security in namespace "otel-demo" is achieved by implementing the following prac
 
 ### 5.2. swan_kubernetes/swan_helm/swan_microservices/
 
-swan_kubernetes/swan_helm/swan_microservices/ contains 22 Helm charts. Most Helm charts contain deployment, service, and network policy.
-
-"frontend-proxy" Helm chart contains deployment, service, ingress and network policy.<br>
-"accounting" and "fraud-detection" Helm charts only contain deployment and network policy.<br>
-"flagd" and "postgresql" Helm charts contain configmap, deployment, service, and network policy.
+swan_kubernetes/swan_helm/swan_microservices/ contains 22 Helm charts.
 
 In "frontend-proxy" Helm chart, there is an ingress called "frontend-proxy". AWS Load Balancer Controller in EKS will create internet-facing ALB. "frontend-proxy" ingress uses ip mode to route traffic directly to pod ip addresses. The ingress uses ACM certificate to enable https. The ingress is configured to redirect http to https. External DNS in EKS will create DNS records in "swanpyaetun.com" Route 53 public hosted zone.
 <br><br>
@@ -207,4 +203,4 @@ spec:
 This ensures "microservices" applications are deployed only after "platform" application is fully deployed.
 <br><br>
 
-Argo CD Image Updater monitors ECR for new container image tags for "microservices" applications, except "postgresql" and "valkey-cart", since there is no private ECR repository for "postgresql" and "valkey-cart". Argo CD Image Updater automatically updates the container image tags defined in the Helm values files in the git repository for each "microservices" application. Argo CD Image Updater uses "git-creds" secret in "argocd" namespace, to be able to push to the git repository.
+Argo CD Image Updater monitors ECR for new container image tags for "microservices" applications. Argo CD Image Updater automatically updates the container image tags defined in the Helm values files in the git repository for each "microservices" application. Argo CD Image Updater uses "git-creds" secret in "argocd" namespace, to be able to push to the git repository.

@@ -1,11 +1,11 @@
 # swanpyaetun/swan_opentelemetry-demo
 
-# Deploying 22 Microservices Application to EKS with GitHub Actions and Argo CD
+# Deploying Microservices Application to EKS with GitHub Actions and Argo CD
 
 ![](swan_docs/swan_images/architecture_diagram.png)
 
 - Tools used: GitHub Actions, AWS, ECR, EKS, Helm, Argo CD, Argo CD Image Updater, AWS Load Balancer Controller, External DNS, Karpenter
-- Deploy 22 microservices application to EKS with GitHub Actions and Argo CD
+- Deploy microservices application to EKS with GitHub Actions and Argo CD
 - Set up GitHub Actions reusable workflow for building and pushing Docker images to ECR
 - Set up 20 GitHub Actions CI/CD pipelines for microservices, which use reusable workflow to build and push Docker images to private ECR repositories
 - Use GitHub Actions repository secret to store sensitive values
@@ -20,7 +20,6 @@
 - Create namespace, service account, "default-deny" network policy, and "allow-dns-access" network policy in "platform" Helm chart
 - Deny all ingress and egress traffic in the namespace with "default-deny" network policy
 - Allow the pods in the namespace to access coredns pods with "allow-dns-access" network policy
-- Create deployments, services, and network policies in microservices Helm charts
 - Secure the application by creating least privilege network policies
 - Create ingress in "frontend-proxy" Helm chart
 - Create internet-facing ALB for Kubernetes ingress with AWS Load Balancer Controller
